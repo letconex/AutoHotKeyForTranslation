@@ -1,0 +1,2 @@
+# AutohotkeyForTranslation
+Autohotkey for translation

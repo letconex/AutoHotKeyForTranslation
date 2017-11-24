@@ -1,0 +1,10 @@
+^Insert:: ; Simulate Ctr+Insert in MemoQ
+WinGetActiveTitle, Title
+IfInString, Title, memoQ
+{
+Send ^+s
+Send {Left}
+}
+Else
+Send ^{Ins}
+Return

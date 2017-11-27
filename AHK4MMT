@@ -12,8 +12,8 @@ clipboard = ; clean clipboard
 ;FileRead, urlencodedtext, decoded.txt ;msgbox %searchtext%
 ;RunWait, curl.exe http://192.168.0.110:8045/translate?q=%urlencodedtext%&context=%urlencodedtext% -o MMTin.txt,, Hide ; Context
 ;RunWait, curl.exe http://192.168.0.110:8045/translate?q=%urlencodedtext% -o MMTin.txt,, Hide ; No context
-;RunWait, wget.exe "192.168.0.110:8045/translate?q=%searchtext%"&context=%searchtext% -O MMTin.txt,, Hide
-RunWait, wget64.exe "192.168.0.110:8045/translate?q=%searchtext%"&context=dero -O MMTin.txt,, Hide
+;RunWait, wget64.exe "192.168.0.110:8045/translate?q=%searchtext%"&context=dero -O MMTin.txt,, Hide
+RunWait, wget.exe "192.168.0.110:8045/translate?q=%searchtext%"&context=%searchtext% -O MMTin.txt,, Hide
 Sleep, 300
 FileRead, targetxt, MMTin.txt ;MsgBox %searchtext%
 Sleep, 300
@@ -72,9 +72,10 @@ searchtext := clipboard
 ;RunWait, URLEncode.exe -e %searchtext% -o decoded.txt,, Hide ;Run URLEncode.exe with the set parameter
 ;FileRead, urlencodedtext, decoded.txt ;msgbox %searchtext%
 ;RunWait, curl.exe http://192.168.0.110:8045/translate?q=%urlencodedtext%&context=%urlencodedtext% -o MMTin.txt,, Hide ; Context
-RunWait, curl.exe http://192.168.0.110:8045/translate?q=%urlencodedtext% -o MMTin.txt,, Hide ; No context
+;RunWait, curl.exe http://192.168.0.110:8045/translate?q=%urlencodedtext% -o MMTin.txt,, Hide ; No context
 ;RunWait, wget64.exe "192.168.0.110:8045/translate?q=%searchtext%"&context=dero -O MMTin.txt,, Hide
-RunWait, wget64.exe "192.168.0.110:8045/translate?q=%searchtext%" -O MMTin.txt,, Hide
+;RunWait, wget64.exe "192.168.0.110:8045/translate?q=%searchtext%" -O MMTin.txt,, Hide ;no context
+RunWait, wget.exe "192.168.0.110:8045/translate?q=%searchtext%"&context=%searchtext% -O MMTin.txt,, Hide
 Sleep, 300
 FileRead, targetxt, MMTin.txt ;MsgBox %searchtext%
 StringTrimLeft, targetxt, targetxt, 37 ; Trim left 37 chars from the server response

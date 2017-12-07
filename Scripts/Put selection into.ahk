@@ -1,35 +1,34 @@
-::g3:: ; Win+B, put selection into columns
-ClipSaved := clipboard ; save clipboard contents
-SendInput, ^c ; copy
-SendInput, ^x ; cut
+^Numpad0:: ; Ctrl+Numpad0, put selection into columns
+ClipSaved := Clipboardall ; save clipboard contents
+Send ^x
 Clipwait
-SendInput, „%clipboard%“ ; send clipboard content with your characters around it
+selection := Clipboard
+Send, `„%selection%`“ ; send clipboard content with your characters around it
 Sleep, 300
 clipboard := ClipSaved ; restore clipboard
-saved := "" ; clear saved
 Return
 
-::p3:: ; Win+B, put selection into paratheses
+^Numpad1:: ; Win+B, put selection into paratheses
 saved := clipboardall ; save clipboard contents
-Send, ^x ; cut
+Send, ^x
 Clipwait
 Send, (%clipboard%) ; send clipboard content with your characters around it
 clipboard := saved ; restore clipboard
 saved := "" ; clear saved
 Return
 
-::pp3:: ; Win+B, put selection into square brackets
+^Numpad2:: ; Win+B, put selection into square brackets
 saved := clipboardall ; save clipboard contents
-Send, ^x ; cut
+Send, ^x
 Clipwait
 Send, [%clipboard%] ; send clipboard content with your characters around it
 clipboard := saved ; restore clipboard
 saved := "" ; clear saved
 Return
 
-::ac3:: ; Win+B, put selection into square acolades
+^Numpad3:: ; Win+B, put selection into square acolades
 saved := clipboardall ; save clipboard contents
-Send, ^x ; cut
+Send, ^x
 Clipwait
 SendRaw {%clipboard%} ; send clipboard content with your characters around it
 clipboard := saved ; restore clipboard

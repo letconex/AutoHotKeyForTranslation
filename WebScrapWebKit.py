@@ -14,7 +14,7 @@ class Render(QWebPage):
   def _loadFinished(self, result):
     self.frame = self.mainFrame()
     self.app.quit()
-url = 'https://translation.babylon-software.com/german/to-romanian/Krebs/'
+url = 'https://duckduckgo.com/?q=search'
 r = Render(url)
 html = r.frame.toHtml()
 file = open('Babylon.html', mode='w', encoding='utf-8')
